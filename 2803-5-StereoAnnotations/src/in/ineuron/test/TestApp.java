@@ -1,0 +1,56 @@
+package in.ineuron.test;
+
+import java.util.Scanner;
+
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import in.ineuron.controller.MainController;
+import in.ineuron.vo.CustomerVo;
+
+public class TestApp {
+
+	public static void main(String[] args) {
+		/*
+		 * Scanner scan= new Scanner(System.in);
+		 * 
+		 * System.out.println("Enter the name of the Customer"); String
+		 * name=scan.next();
+		 * 
+		 * System.out.println("Enter the Address of the customer"); String addr =
+		 * scan.next();
+		 * 
+		 * System.out.println("Enter the PrincipalAmount"); String pAmt = scan.next();
+		 * 
+		 * System.out.println("Enter the rate of interest"); String rate = scan.next();
+		 * 
+		 * System.out.println("Enter the time period"); String time = scan.next();
+		 * 
+		 * 
+		 * CustomerVo customerVo = new CustomerVo(); customerVo.setCustName(name);
+		 * customerVo.setCustAddr(addr); customerVo.setpAmt(pAmt);
+		 * customerVo.setRate(rate); customerVo.setTime(time);
+		 * 
+		 */
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		System.out.println("*************container Started******* ");
+		
+		MainController mainController =	context.getBean("customerController",MainController.class);
+		try {
+			String result = mainController.processCustomer(null);
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Internal Problem....."+e.getMessage());
+		}
+		
+		System.out.println("*************container Stopped******* ");
+		//scan.close();
+		
+	}
+
+}
