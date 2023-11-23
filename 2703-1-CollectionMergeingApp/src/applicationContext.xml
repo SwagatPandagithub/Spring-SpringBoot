@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 
+
+   <bean id="firstYear" class="in.ineuron.comp.EnggStudents" abstract="true">
+   		<property name="courses">
+   			<set>
+   				<value>Physics</value>
+   				<value>Math1</value>
+   				<value>Thermo</value>
+   			</set>
+   		</property>
+   </bean>
+   
+   
+    <bean id="Electrical" class="in.ineuron.comp.EnggStudents" parent="firstYear">
+   		<property name="courses">
+   			<set merge="true">
+   				<value>Machines</value>
+   				<value>EPTD</value>
+   				<value>DS</value>
+   			</set>
+   		</property>
+   </bean>
+   
+   
+-->
+   
+   <bean id="firstYear1" class="in.ineuron.comp.EnggStudents" abstract="true">
+   		<constructor-arg name="courses">
+   			<set merge="true">
+   				<value>mechanics</value>
+   				<value>Data Structures</value>
+   				<value>chemistry</value>
+   			</set>   		
+   		</constructor-arg>
+   </bean>
+   
+   <bean id="CS" class="in.ineuron.comp.EnggStudents" parent="firstYear1">
+   		<constructor-arg name="courses">
+   			<set merge="true">
+   				<value>SDLC</value>
+   				<value>software Engg</value>
+   				<value>oops</value>
+   			</set>   		
+   		</constructor-arg>
+   </bean>
+   
+   
+   
+</beans>

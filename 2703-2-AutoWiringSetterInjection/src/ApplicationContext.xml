@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  
+  <!-- 
+  
+  by this code the dependent and target object gets created only the injection or the linking does not happen
+  
+  Configuring the Dependent Component for setter injection
+  	<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+	
+	Configuring the Target bean
+	<bean name="flipkart" class="in.iNeuron.Components.Flipkart">
+		<property name="discount" ref="25"/>	
+	</bean>	
+ -->
+	 
+							<!-- 
+							 when we make autowire="byType" the flipkart bean is created and the dtdc bean is also created
+							
+							autowire helps in automatic injection when we autowire byType the flipkart bean searches for 
+							any bean which is present by type which type Courier type here the DTDC bean is of courier type
+							
+							
+							
+							  Configuring the Dependent Component for setter injection
+						  	<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+							
+							Configuring the Target bean
+							<bean name="flipkart" class="in.iNeuron.Components.Flipkart" autowire="byType">
+								<property name="discount" ref="25"/>	
+							</bean>	 
+							
+							-->
+							
+							
+	
+	<!-- when there is no byName bean available only byTypes are available, container needs byName, all the beans gets created with no errors
+	
+		 Configuring the Dependent Component for setter injection
+  	<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+  	<bean id="bluedart" class="in.iNeuron.Components.Bluedart"/>
+  	<bean id="fFlight" class="in.iNeuron.Components.FirstFlight"/>
+	
+		Configuring the Target bean
+	<bean name="flipkart" class="in.iNeuron.Components.Flipkart" autowire="byName">
+		<property name="discount" value="25"/>	
+	</bean>	  -->
+	   
+	   
+	   
+	   
+								 <!--   Injection happens successfully, container finds the bean named by Name that is courier
+								Configuring the Dependent Component for setter injection
+								<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+							  	<bean id="courier" class="in.iNeuron.Components.Bluedart"/>
+							  	<bean id="fFlight" class="in.iNeuron.Components.FirstFlight"/>
+								
+									Configuring the Target bean
+								<bean name="flipkart" class="in.iNeuron.Components.Flipkart" autowire="byName">
+									<property name="discount" value="25"/>	
+								</bean>	  
+								 -->
+	
+	
+	
+	
+	<!-- Configuring the Dependent Component for setter injection -->
+	<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+  	<bean id="blueDart" class="in.iNeuron.Components.Bluedart" primary="true"/>
+  	<bean id="fFlight" class="in.iNeuron.Components.FirstFlight"/>
+	
+		<!-- Configuring the Target bean -->
+	<bean name="flipkart" class="in.iNeuron.Components.Flipkart" autowire="byType">
+		<property name="discount" value="25"/>	
+	</bean>	
+	
+</beans>
