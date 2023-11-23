@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  
+  <!-- Configuring the Dependent Component for setter injection-->
+  
+	<bean id="dt1" class="java.util.Date"/>
+	
+	<!-- Configuring another Dependent object for Constructor injection -->
+	
+			<bean id="dt2" class="java.util.Date">
+				<constructor-arg name="day" value="14"></constructor-arg>
+				<constructor-arg name="month" value="01"></constructor-arg>
+				<constructor-arg name="year" value="1997"></constructor-arg>
+				
+			
+			</bean>
+		
+	<!-- Configuring the Target Component -->
+		<bean id="wishMessagr" class="in.iNeuron.Component.WishMessager">
+			<property name="date" ref="dt1"></property>
+			<constructor-arg name="date" ref="dt2"></constructor-arg>
+		</bean>
+	
+	
+</beans>
