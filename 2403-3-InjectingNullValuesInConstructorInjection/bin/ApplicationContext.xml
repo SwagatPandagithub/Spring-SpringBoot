@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  
+  
+ <bean id="pInfo" class="in.iNeuron.Component.PersonInfo">
+	 <constructor-arg name="pid" value="10"/>
+	 <constructor-arg name="pName" value="Sachin"/>
+	 <constructor-arg name="pAddress" value="MUMBAI"/>
+	 <constructor-arg name="dob" ref="dobObj" />
+	 <constructor-arg name="doj"><null/></constructor-arg>
+	 <constructor-arg name="dom"><null/></constructor-arg>
+ 
+ </bean>
+	
+  <bean id= "dobObj" class = "java.util.Date">
+  		<property name="date" value="10"/>
+  		<property name="month" value="05"/>
+  		<property name="year" value="1997"/>
+  </bean>
+</beans>
