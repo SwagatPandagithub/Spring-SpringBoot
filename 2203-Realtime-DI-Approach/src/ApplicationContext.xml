@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  
+  <!-- Configuring the Dependent Component for setter injection-->
+  	<bean id="firstFlight" class="in.iNeuron.Components.FirstFlight"/>
+  	<bean id="dtdc" class="in.iNeuron.Components.DTDC"/>
+  	<bean id="blueDart" class="in.iNeuron.Components.Bluedart"/>
+	
+	<!-- Configuring the Target bean -->
+	<bean name="flipkart" class="in.iNeuron.Components.Flipkart">
+		<property name="courier" value="dtdc"/>
+		<property name="discount" ref="25"/>
+	
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  
+  <!-- Configuring the Dependent Component for setter injection-->
+  
+	
+	
+	<bean id="Student1" class="in.iNeuron.Component.Student">
+		<constructor-arg name="name" value="Swagat"/>
+		<constructor-arg name="sid" value="1234"/>
+		<constructor-arg name="addr" value="Bengaluru"/>
+		<constructor-arg name="age" value="26"/>
+	
+	</bean>
+	
+	
+</beans>
